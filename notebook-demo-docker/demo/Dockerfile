@@ -41,10 +41,7 @@ RUN pip install https://s3.amazonaws.com/h2o-beta-release/goai/h2oaiglm-0.0.1-py
 RUN pip install py3nvml
 
 # Add h2o4gpu
-ENV H2O4GPU_WHL="h2o4gpu-0.0.3-py36-none-any.whl"
-COPY ./packages/${H2O4GPU_WHL} ${H2O4GPU_WHL}
-RUN pip install ${H2O4GPU_WHL}
-RUN pip install feather-format
+RUN pip install --extra-index-url https://pypi.anaconda.org/gpuopenanalytics/simple h2o4gpu
 
 
 # Extra packages for the demo
